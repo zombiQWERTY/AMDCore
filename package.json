@@ -1,0 +1,21 @@
+{
+	"name": "NewPattern",
+	"version": "1.0.0",
+	"repository": "",
+	"description": "",
+	"main": "Gulpfile.js",
+	"author": "zombiQWERTY",
+	"license": "MIT",
+	"devDependencies": {
+		"gulp"                   : "latest",
+		"gulp-coffee"            : "latest",
+		"gulp-compass"           : "latest",
+		"gulp-uglify"            : "latest",
+		"gulp-minify-css"        : "latest",
+		"vinyl-source-stream"    : "latest",
+		"gulp-streamify"         : "latest",
+		"browser-sync"           : "latest",
+
+		"jquery"                 : "latest"
+	}
+}
