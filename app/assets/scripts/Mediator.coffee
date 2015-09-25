@@ -1,5 +1,8 @@
 "use strict"
 
+# MVC based on this article: http://alistapart.com/article/javascript-mvc
+# Pattern: module(model, view, controller, template)->facade->mediator
+
 define ["jquery"], ($) ->
 	Mediator = do ->
 

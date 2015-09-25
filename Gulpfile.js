@@ -51,11 +51,16 @@ gulp.task("vendor", function() {
 });
 
 gulp.task("html", function() {
-	return gulp.src("./app/views/**/*.html")
+	return gulp.src("./app/views/*.html")
 		.pipe(gulp.dest("./public/"));
 });
 
-gulp.task("serve", ["compass", "coffee", "html"], function() {
+gulp.task("views", function() {
+	return gulp.src("./app/views/templates/**/*.html")
+		.pipe(gulp.dest("./public/views/"));
+});
+
+gulp.task("serve", ["compass", "coffee", "html", "views"], function() {
 	browserSync.init({
 		server: "./public"
 	});
@@ -65,6 +70,7 @@ gulp.task("serve", ["compass", "coffee", "html"], function() {
 	gulp.watch(pathes.src.scripts + "/**/*", ["coffee"]);
 
 	gulp.watch("./app/views/**/*.html", ["html"]).on("change", browserSync.reload);
+	gulp.watch("./app/views/templates/**/*.html", ["views"]).on("change", browserSync.reload);
 
 	browserSync.watch([pathes.dest.styles + "/**/*.css", pathes.dest.scripts + "/**/*.js"], function (event, file) {
 		if (event === "change") {

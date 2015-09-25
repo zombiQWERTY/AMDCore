@@ -3,17 +3,19 @@
 requirejs.config
 	baseUrl: "javascripts/"
 	paths  :
+		text      : "libs/text"
 		jquery    : "libs/jquery"
 		underscore: "libs/underscore"
 		Mediator  : "Mediator"
 		Facade    : "Facade"
 		modules   : "modules"
+		templates : "../views"
 
 
 define ["Facade"], (Facade) ->
-	Facade.Modules.Load("Start", "modules/Start").done ->
-		if Facade.Modules.Has "Start"
-			Facade.Modules.Get "Start"
+	Facade.Modules.Load("StartCtrl", "modules/Start/controller/Start").done ->
+		if Facade.Modules.Has "StartCtrl"
+			Facade.Modules.Broadcast "StartCtrl", "Initialize"
 		else
-			console.log "Error with initialization."
+			console.log "Error with \"StartCtrl\"."
 		return
